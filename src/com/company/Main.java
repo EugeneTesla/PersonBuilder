@@ -16,13 +16,15 @@ public class Main {
         System.out.println("У " + mom + " есть сын, " + son);
 
         try {
-            new PersonBuilder().setAge(23).setSurname("test1").setName("Tzar").build();
+            // Не хватает обязательных полей
+            new PersonBuilder().build();
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
 
         try {
-            new PersonBuilder().setAge(2).setSurname("test").setName("Tvar").build();
+            // Возраст недопустимый
+            new PersonBuilder().setAge(-100).build();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
